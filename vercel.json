@@ -5,11 +5,5 @@
     "api/index.py": {
       "includeFiles": "{app,data}/**"
     }
-  },
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/api/index"
-    }
-  ]
+  }
 }
