@@ -7,7 +7,7 @@ def test_total_revenue_matches_completed_orders(conn):
     result = analytics.total_revenue(conn)
     assert result["data"][0]["value"] == pytest.approx(1439200.0)
     assert "1,439,200.00" in result["answer"]
-
+   
 
 def test_top_product_is_monitor(conn):
     result = analytics.revenue_by_product(conn)
