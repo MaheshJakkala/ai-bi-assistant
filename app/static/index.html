@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini AI Business Intelligence Assistant</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Mini AI BI Assistant</h1>
+      <p class="subtitle">Ask questions about sales transactions in natural language.</p>
+    </div>
+    <div class="badge" id="statusBadge">checking dataset…</div>
+  </header>
+
+  <main class="layout">
+    <section class="panel chat-panel">
+      <form id="askForm" class="ask-form">
+        <label for="questionInput">Your question</label>
+        <textarea id="questionInput" name="question" rows="2" maxlength="500"
+          placeholder="e.g. Which product generated the highest revenue?"></textarea>
+        <div class="actions">
+          <button type="submit" id="askBtn">Ask</button>
+          <button type="button" id="clearBtn" class="secondary">Clear</button>
+        </div>
+      </form>
+
+      <div class="examples">
+        <span>Try:</span>
+        <div id="exampleChips" class="chips"></div>
+      </div>
+
+      <div id="error" class="error hidden" role="alert"></div>
+
+      <article id="result" class="result hidden">
+        <h2 id="answerText"></h2>
+        <div class="meta">
+          <span id="intentTag" class="tag"></span>
+          <span id="sourceTag" class="tag ghost"></span>
+        </div>
+        <div id="chart" class="chart"></div>
+        <div id="tableWrap" class="table-wrap"></div>
+        <details class="sql">
+          <summary>Supporting SQL</summary>
+          <pre id="sqlText"></pre>
+        </details>
+      </article>
+    </section>
+
+    <aside class="panel info-panel">
+      <h3>Dataset</h3>
+      <dl id="datasetStats" class="stats"></dl>
+      <p class="note">
+        Revenue = quantity × unit price − discount. Only <strong>Completed</strong>
+        orders are counted unless you ask to include returns. Invalid rows are
+        rejected and logged, never silently loaded.
+      </p>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    Deterministic SQL over SQLite · optional LLM intent classification · read-only query guard
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local database + env
+data/*.db
+data/*.db-journal
+.env
+
+# Test / tooling caches
+.pytest_cache/
+.coverage
+htmlcov/
