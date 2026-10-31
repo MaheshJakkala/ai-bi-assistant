@@ -54,6 +54,12 @@ Or use the helper script, which seeds only when the database is missing:
 Then open http://localhost:8000 for the UI. The API is also documented at
 http://localhost:8000/docs.
 
+### Deployment
+
+The app is Vercel-ready (`api/index.py` + `vercel.json`) and can also run in
+Docker. See `docs/DEPLOY_VERCEL.md` for step-by-step instructions, the
+environment variables, and the serverless caveats.
+
 ## API
 
 | Method | Path | Purpose |
@@ -194,4 +200,8 @@ app/
 data/             source CSV (+ generated sales.db, git-ignored)
 scripts/seed.py   database seeding CLI
 tests/            pytest suite
+api/index.py      Vercel serverless entrypoint
+vercel.json       Vercel routing + bundling config
+Dockerfile        container image for Render/Railway/Cloud Run
+docs/             architecture, AI usage notes, deployment, interview prep
 ```

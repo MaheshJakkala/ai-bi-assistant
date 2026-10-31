@@ -8,7 +8,7 @@ from app.main import app
 @pytest.fixture()
 def client(tmp_path, monkeypatch):
     db_path = tmp_path / "api_sales.db"
-    monkeypatch.setattr(main_module, "DEFAULT_DB_PATH", db_path)
+    monkeypatch.setattr(main_module, "DB_PATH", db_path)
     with TestClient(app) as test_client:
         yield test_client
 
